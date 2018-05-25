@@ -3,16 +3,26 @@ package com.yash.moviebookingsystem.model;
 public class Movie {
 	private String movieName;
 	private String cast;
-	private IScreen screen;
+	private transient IScreen screen;
+	private String screenName;
 	
 	public Movie(IScreen screen)
 	{
-		this.screen = screen;
+		this.screenName = screen.getScreenName();
 	}
 	
 	public Movie() {
 		
 	}
+	
+	public String getScreenName() {
+		return screenName;
+	}
+
+	public void setScreenName(String screenName) {
+		this.screenName = screenName;
+	}
+	
 	public String getMovieName() {
 		return movieName;
 	}
@@ -39,7 +49,7 @@ public class Movie {
 	
 	@Override
 	public String toString() {
-		return "Movie [movieName=" + movieName + ", cast=" + cast + ", screen=" + screen.getScreenName() + "]";
+		return "Movie [movieName=" + movieName + ", cast=" + cast + ", screen=" + screenName + "]";
 	}
 
 }
