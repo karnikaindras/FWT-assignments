@@ -1,6 +1,10 @@
 package com.yash.moviebookingsystem.model;
 
+import java.util.Set;
+
 public class Screen implements IScreen {
+	
+	private static int screenIdGenerator = 0;
 	/**
 	 * unique id of Screen
 	 */
@@ -11,25 +15,21 @@ public class Screen implements IScreen {
 	 */
 	private String screenName;
 	
+	private Set<Show> showsForThisScreen;
+
 	private Movie movie;
 	
 	public Screen() {
+		
 		movie = new Movie(this);
+		this.screenId = screenIdGenerator++;
 	}
 
 	
 	public Screen(int screenId, String screenName) {
 		super();
-		this.screenId = screenId;
+		
 		this.screenName = screenName;
-	}
-
-	public int getScreenId() {
-		return screenId;
-	}
-
-	public void setScreenId(int screenId) {
-		this.screenId = screenId;
 	}
 
 	public String getScreenName() {
@@ -47,6 +47,16 @@ public class Screen implements IScreen {
 
 	public void setMovie(Movie movie) {
 		this.movie = movie;
+	}
+	
+	
+	public Set<Show> getShowsForThisScreen() {
+		return showsForThisScreen;
+	}
+
+
+	public void setShowsForThisScreen(Set<Show> showsForThisScreen) {
+		this.showsForThisScreen = showsForThisScreen;
 	}
 	
 	@Override

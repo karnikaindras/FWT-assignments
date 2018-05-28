@@ -1,10 +1,14 @@
 package com.yash.moviebookingsystem.model;
 
+import java.util.List;
+
 public class Movie {
 	private String movieName;
-	private String cast;
+	private List<String> cast;
 	private transient IScreen screen;
 	private String screenName;
+	private String production;
+	private String runningTime;
 	
 	public Movie(IScreen screen)
 	{
@@ -31,11 +35,19 @@ public class Movie {
 		this.movieName = movieName;
 	}
 
-	public String getCast() {
+	public String getProduction() {
+		return production;
+	}
+
+	public void setProduction(String production) {
+		this.production = production;
+	}
+
+	public List<String> getCast() {
 		return cast;
 	}
 
-	public void setCast(String cast) {
+	public void setCast(List<String> cast) {
 		this.cast = cast;
 	}
 
@@ -47,6 +59,14 @@ public class Movie {
 		this.screen = screen;
 	}
 	
+	public String getRunningTime() {
+		return runningTime;
+	}
+
+	public void setRunningTime(String runningTime) {
+		this.runningTime = runningTime;
+	}
+
 	@Override
 	public String toString() {
 		return "Movie [movieName=" + movieName + ", cast=" + cast + ", screen=" + screenName + "]";
